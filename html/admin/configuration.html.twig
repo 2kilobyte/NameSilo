@@ -1,0 +1,47 @@
+<div class="widget">
+    <div class="head">
+        <h5>NameSilo Configuration</h5>
+    </div>
+
+    <form method="post" action="{{ 'api/admin/module/update_config'|link }}" class="mainForm api-form" data-api-msg="Configuration updated">
+        <input type="hidden" name="ext" value="mod_namesilo">
+        
+        <fieldset>
+            <div class="rowElem noborder">
+                <label>API Key:</label>
+                <div class="formRight">
+                    <input type="password" name="api_key" value="{{ config.api_key }}" placeholder="Your NameSilo API Key">
+                </div>
+                <div class="fix"></div>
+            </div>
+
+            <div class="rowElem">
+                <label>Sandbox Mode:</label>
+                <div class="formRight">
+                    <input type="radio" name="sandbox" value="1" {% if config.sandbox %}checked="checked"{% endif %}/><label>Yes</label>
+                    <input type="radio" name="sandbox" value="0" {% if not config.sandbox %}checked="checked"{% endif %}/><label>No</label>
+                </div>
+                <div class="fix"></div>
+            </div>
+
+            <div class="rowElem">
+                <label>Auto Renew:</label>
+                <div class="formRight">
+                    <input type="radio" name="auto_renew" value="1" {% if config.auto_renew %}checked="checked"{% endif %}/><label>Yes</label>
+                    <input type="radio" name="auto_renew" value="0" {% if not config.auto_renew %}checked="checked"{% endif %}/><label>No</label>
+                </div>
+                <div class="fix"></div>
+            </div>
+
+            <div class="rowElem">
+                <label>Default Nameservers (comma separated):</label>
+                <div class="formRight">
+                    <input type="text" name="nameservers" value="{{ config.nameservers|join(',') }}" placeholder="ns1.namesilo.com, ns2.namesilo.com">
+                </div>
+                <div class="fix"></div>
+            </div>
+
+            <input type="submit" value="Update Configuration" class="greyishBtn submitForm" />
+        </fieldset>
+    </form>
+</div>
