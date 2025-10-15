@@ -1,0 +1,9 @@
+{
+    "id": "NameSilo",
+    "type": "mod",
+    "name": "NameSilo Domain Registrar",
+    "description": "NameSilo API integration for domain registration",
+    "version": "1.0.0",
+    "author": "Your Name",
+    "icon": "icon.png"
+}
